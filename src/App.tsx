@@ -1,7 +1,28 @@
-import { useState } from 'react'
 import { useQuery } from "@apollo/client";
+import styled from "styled-components";
 
 import INFO_PERSON from "./queries";
+
+export const ContainerParent = styled.section`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
+export const Card = styled.div`
+  margin: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 20%;
+
+  &:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const ContainerData = styled.div`
+  padding: 2px 16px;
+`;
 
 function App() {
   const { loading, error, data } = useQuery(INFO_PERSON);
@@ -15,11 +36,11 @@ function App() {
   }
 
   return (
-    <section className="parent">
-      {data.characters.results.map((person, index) => (
-        <div className="card" key={person.name}>
+    <ContainerParent>
+      {data.characters.results.map((person: any, index: number) => (
+        <Card key={person.name}>
           <img src={person.image} alt="Avatar" style={{ width: "100%" }} />
-          <div className="container">
+          <ContainerData>
             <h4>
               <b>{person.name}</b>
             </h4>
@@ -29,11 +50,11 @@ function App() {
             <p>
               <b>SPECIE:</b> {person.species}
             </p>
-          </div>
-        </div>
+          </ContainerData>
+        </Card>
       ))}
-    </section>
+    </ContainerParent>
   );
 }
 
-export default App
+export default App;
