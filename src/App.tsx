@@ -32,7 +32,7 @@ function App() {
   }
 
   if (error) {
-    return <p>an error occurred...</p>;
+    return <p>{error.message}</p>;
   }
 
   return (
