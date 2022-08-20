@@ -11,9 +11,11 @@ module.exports = {
   },
   testEnvironment: 'jsdom',
   collectCoverage: false,
-  // collectCoverageFrom: [
-  //   "<rootDir>/src/**/*.{tsx,ts}",
-  // ],
+  collectCoverageFrom: [
+    "<rootDir>/src/**/*.{tsx,ts}",
+    "!<rootDir>/src/main.tsx",
+    "!<rootDir>/src/services/**",
+  ],
   coveragePathIgnorePatterns: [
     "node_modules",
   ],
