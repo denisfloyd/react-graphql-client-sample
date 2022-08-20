@@ -40,4 +40,11 @@ it("should render correctly", async () => {
   );
   expect(await screen.findByText("Loading...")).toBeInTheDocument();
   expect(await screen.findByText("John Doe")).toBeInTheDocument();
+  expect(screen.getByText("Male")).toBeInTheDocument();
+  expect(screen.getByText("Female")).toBeInTheDocument();
+
+  const imgs = screen.getAllByRole("img");
+  expect(imgs.length).toBe(2);
+  expect(imgs[0]).toHaveAttribute("src", "http://localhost.com/avatar/1.jpeg");
+  expect(imgs[1]).toHaveAttribute("src", "http://localhost.com/avatar/2.jpeg");
 });

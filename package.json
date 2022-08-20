@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --verbose --watchAll"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
